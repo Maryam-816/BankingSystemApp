@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BakingSystemUI
+namespace BakingSystemUI.Forms
 {
     public partial class MainForm : Form
     {
