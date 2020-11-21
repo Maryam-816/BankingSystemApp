@@ -37,17 +37,18 @@
             // 
             // btn_submit
             // 
-            this.btn_submit.Location = new System.Drawing.Point(62, 125);
+            this.btn_submit.Location = new System.Drawing.Point(48, 116);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(75, 23);
             this.btn_submit.TabIndex = 0;
             this.btn_submit.Text = "Submit";
             this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
-            this.lbl_email.Location = new System.Drawing.Point(14, 11);
+            this.lbl_email.Location = new System.Drawing.Point(0, 2);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(35, 13);
             this.lbl_email.TabIndex = 1;
@@ -55,14 +56,14 @@
             // 
             // txbx_email
             // 
-            this.txbx_email.Location = new System.Drawing.Point(17, 36);
+            this.txbx_email.Location = new System.Drawing.Point(3, 27);
             this.txbx_email.Name = "txbx_email";
             this.txbx_email.Size = new System.Drawing.Size(174, 20);
             this.txbx_email.TabIndex = 2;
             // 
             // txbx_password
             // 
-            this.txbx_password.Location = new System.Drawing.Point(17, 90);
+            this.txbx_password.Location = new System.Drawing.Point(3, 81);
             this.txbx_password.Name = "txbx_password";
             this.txbx_password.Size = new System.Drawing.Size(174, 20);
             this.txbx_password.TabIndex = 4;
@@ -70,7 +71,7 @@
             // lbl_password
             // 
             this.lbl_password.AutoSize = true;
-            this.lbl_password.Location = new System.Drawing.Point(14, 65);
+            this.lbl_password.Location = new System.Drawing.Point(0, 56);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(56, 13);
             this.lbl_password.TabIndex = 3;
@@ -86,7 +87,7 @@
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.btn_submit);
             this.Name = "RegLogControl";
-            this.Size = new System.Drawing.Size(215, 178);
+            this.Size = new System.Drawing.Size(180, 141);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,9 +96,9 @@
         #endregion
 
         private System.Windows.Forms.Button btn_submit;
-        private System.Windows.Forms.Label lbl_email;
+        public System.Windows.Forms.Label lbl_email;
         private System.Windows.Forms.TextBox txbx_email;
-        private System.Windows.Forms.TextBox txbx_password;
-        private System.Windows.Forms.Label lbl_password;
+        public System.Windows.Forms.TextBox txbx_password;
+        public System.Windows.Forms.Label lbl_password;
     }
 }
