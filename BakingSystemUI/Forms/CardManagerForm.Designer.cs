@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.lbl_bank = new System.Windows.Forms.Label();
-            this.txbx_bank = new System.Windows.Forms.TextBox();
             this.lbl_cvc = new System.Windows.Forms.Label();
             this.txbx_cvc = new System.Windows.Forms.TextBox();
             this.lbl_number = new System.Windows.Forms.Label();
             this.txbx_number = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txbx_type = new System.Windows.Forms.TextBox();
             this.lbl_duration = new System.Windows.Forms.Label();
-            this.txbx_duration = new System.Windows.Forms.TextBox();
             this.lbl_expiredDate = new System.Windows.Forms.Label();
             this.txbx_expiredDate = new System.Windows.Forms.TextBox();
             this.btn_order = new System.Windows.Forms.Button();
             this.grbx_card = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.grbx_card.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,14 +53,6 @@
             this.lbl_bank.Size = new System.Drawing.Size(38, 13);
             this.lbl_bank.TabIndex = 0;
             this.lbl_bank.Text = "Bank: ";
-            // 
-            // txbx_bank
-            // 
-            this.txbx_bank.Location = new System.Drawing.Point(90, 23);
-            this.txbx_bank.Multiline = true;
-            this.txbx_bank.Name = "txbx_bank";
-            this.txbx_bank.Size = new System.Drawing.Size(153, 20);
-            this.txbx_bank.TabIndex = 1;
             // 
             // lbl_cvc
             // 
@@ -105,14 +97,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Type: ";
             // 
-            // txbx_type
-            // 
-            this.txbx_type.Location = new System.Drawing.Point(89, 94);
-            this.txbx_type.Multiline = true;
-            this.txbx_type.Name = "txbx_type";
-            this.txbx_type.Size = new System.Drawing.Size(153, 20);
-            this.txbx_type.TabIndex = 9;
-            // 
             // lbl_duration
             // 
             this.lbl_duration.AutoSize = true;
@@ -121,14 +105,6 @@
             this.lbl_duration.Size = new System.Drawing.Size(53, 13);
             this.lbl_duration.TabIndex = 10;
             this.lbl_duration.Text = "Duration: ";
-            // 
-            // txbx_duration
-            // 
-            this.txbx_duration.Location = new System.Drawing.Point(89, 59);
-            this.txbx_duration.Multiline = true;
-            this.txbx_duration.Name = "txbx_duration";
-            this.txbx_duration.Size = new System.Drawing.Size(153, 20);
-            this.txbx_duration.TabIndex = 11;
             // 
             // lbl_expiredDate
             // 
@@ -158,18 +134,18 @@
             // 
             // grbx_card
             // 
+            this.grbx_card.Controls.Add(this.comboBox3);
+            this.grbx_card.Controls.Add(this.comboBox2);
+            this.grbx_card.Controls.Add(this.comboBox1);
             this.grbx_card.Controls.Add(this.btn_order);
             this.grbx_card.Controls.Add(this.txbx_expiredDate);
             this.grbx_card.Controls.Add(this.lbl_expiredDate);
-            this.grbx_card.Controls.Add(this.txbx_duration);
             this.grbx_card.Controls.Add(this.lbl_duration);
-            this.grbx_card.Controls.Add(this.txbx_type);
             this.grbx_card.Controls.Add(this.label5);
             this.grbx_card.Controls.Add(this.txbx_number);
             this.grbx_card.Controls.Add(this.lbl_number);
             this.grbx_card.Controls.Add(this.txbx_cvc);
             this.grbx_card.Controls.Add(this.lbl_cvc);
-            this.grbx_card.Controls.Add(this.txbx_bank);
             this.grbx_card.Controls.Add(this.lbl_bank);
             this.grbx_card.Location = new System.Drawing.Point(2, 12);
             this.grbx_card.Name = "grbx_card";
@@ -178,11 +154,51 @@
             this.grbx_card.TabStop = false;
             this.grbx_card.Text = "Card";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "KapitalBank",
+            "ExpressBank",
+            "BTBBank",
+            "YellowBank",
+            "BeynalxalqBank"});
+            this.comboBox1.Location = new System.Drawing.Point(89, 22);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(153, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Salary",
+            "Debet",
+            "Scolarship",
+            "Credit"});
+            this.comboBox2.Location = new System.Drawing.Point(89, 93);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(153, 21);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "5",
+            "10"});
+            this.comboBox3.Location = new System.Drawing.Point(89, 58);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(153, 21);
+            this.comboBox3.TabIndex = 17;
+            // 
             // CardManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 322);
+            this.ClientSize = new System.Drawing.Size(302, 322);
             this.Controls.Add(this.grbx_card);
             this.Name = "CardManagerForm";
             this.Text = "CardManagerForm";
@@ -195,18 +211,18 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_bank;
-        private System.Windows.Forms.TextBox txbx_bank;
         private System.Windows.Forms.Label lbl_cvc;
         private System.Windows.Forms.TextBox txbx_cvc;
         private System.Windows.Forms.Label lbl_number;
         private System.Windows.Forms.TextBox txbx_number;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txbx_type;
         private System.Windows.Forms.Label lbl_duration;
-        private System.Windows.Forms.TextBox txbx_duration;
         private System.Windows.Forms.Label lbl_expiredDate;
         private System.Windows.Forms.TextBox txbx_expiredDate;
         private System.Windows.Forms.Button btn_order;
         private System.Windows.Forms.GroupBox grbx_card;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
