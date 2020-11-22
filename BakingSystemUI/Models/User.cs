@@ -23,5 +23,7 @@ namespace BakingSystemUI.Models
                     
             }
         }
+
+        public UserType UserType { get; set; }
     }
 }
