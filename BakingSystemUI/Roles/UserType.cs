@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BakingSystemUI.Roles
 {
-    public class UserType
+    public enum UserType
     {
+        User,
+        Admin,
+        Moderator
     }
 }
