@@ -11,6 +11,6 @@ namespace BakingSystemUI.Core
     static class Session
     {
         public static User User { get; set; }
-        public static LogForm LogForm { get; internal set; }
+        public static LogForm LogForm { get; set; }
     }
 }

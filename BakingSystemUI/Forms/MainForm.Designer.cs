@@ -35,15 +35,18 @@
             this.lbl_age = new System.Windows.Forms.Label();
             this.lbl_surname = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
+            this.grbx_setting = new System.Windows.Forms.GroupBox();
+            this.lnLbl_settings = new System.Windows.Forms.LinkLabel();
             this.grbx_cards.SuspendLayout();
             this.grbx_user.SuspendLayout();
+            this.grbx_setting.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbx_cards
             // 
             this.grbx_cards.Controls.Add(this.lnLbl_orderCards);
             this.grbx_cards.Controls.Add(this.lnLbl_myCards);
-            this.grbx_cards.Location = new System.Drawing.Point(12, 176);
+            this.grbx_cards.Location = new System.Drawing.Point(12, 177);
             this.grbx_cards.Name = "grbx_cards";
             this.grbx_cards.Size = new System.Drawing.Size(200, 100);
             this.grbx_cards.TabIndex = 3;
@@ -59,6 +62,7 @@
             this.lnLbl_orderCards.TabIndex = 1;
             this.lnLbl_orderCards.TabStop = true;
             this.lnLbl_orderCards.Text = "Order cards";
+            this.lnLbl_orderCards.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnLbl_orderCards_LinkClicked);
             // 
             // lnLbl_myCards
             // 
@@ -69,6 +73,7 @@
             this.lnLbl_myCards.TabIndex = 0;
             this.lnLbl_myCards.TabStop = true;
             this.lnLbl_myCards.Text = "My cards";
+            this.lnLbl_myCards.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnLbl_myCards_LinkClicked);
             // 
             // grbx_user
             // 
@@ -109,21 +114,44 @@
             this.lbl_name.TabIndex = 1;
             this.lbl_name.Text = "Name: ";
             // 
+            // grbx_setting
+            // 
+            this.grbx_setting.Controls.Add(this.lnLbl_settings);
+            this.grbx_setting.Location = new System.Drawing.Point(262, 124);
+            this.grbx_setting.Name = "grbx_setting";
+            this.grbx_setting.Size = new System.Drawing.Size(200, 68);
+            this.grbx_setting.TabIndex = 4;
+            this.grbx_setting.TabStop = false;
+            this.grbx_setting.Text = "Settings";
+            // 
+            // lnLbl_settings
+            // 
+            this.lnLbl_settings.AutoSize = true;
+            this.lnLbl_settings.Location = new System.Drawing.Point(18, 31);
+            this.lnLbl_settings.Name = "lnLbl_settings";
+            this.lnLbl_settings.Size = new System.Drawing.Size(45, 13);
+            this.lnLbl_settings.TabIndex = 5;
+            this.lnLbl_settings.TabStop = true;
+            this.lnLbl_settings.Text = "Settings";
+            this.lnLbl_settings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnLbl_settings_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 306);
+            this.ClientSize = new System.Drawing.Size(495, 306);
+            this.Controls.Add(this.grbx_setting);
             this.Controls.Add(this.grbx_cards);
             this.Controls.Add(this.grbx_user);
             this.Name = "MainForm";
             this.Text = "UserForm";
-            this.Controls.SetChildIndex(this.grbx_user, 0);
-            this.Controls.SetChildIndex(this.grbx_cards, 0);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.grbx_cards.ResumeLayout(false);
             this.grbx_cards.PerformLayout();
             this.grbx_user.ResumeLayout(false);
             this.grbx_user.PerformLayout();
+            this.grbx_setting.ResumeLayout(false);
+            this.grbx_setting.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +165,7 @@
         private System.Windows.Forms.Label lbl_age;
         private System.Windows.Forms.Label lbl_surname;
         private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.GroupBox grbx_setting;
+        private System.Windows.Forms.LinkLabel lnLbl_settings;
     }
 }
