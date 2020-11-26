@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BakingSystemUI.Forms;
+using BakingSystemUI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace BakingSystemUI.Core
 {
-    public class Session
+    static class Session
     {
+        public static User User { get; set; }
+        public static LogForm LogForm { get; internal set; }
     }
 }
