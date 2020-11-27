@@ -1,4 +1,5 @@
-﻿using BakingSystemUI.Models;
+﻿using BakingSystemUI.Core;
+using BakingSystemUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace BakingSystemUI.Data
         {
             Users = new DbSet<User>();
             Cards = new DbSet<Card>();
+            Users.Add(new User { Id = Identificator<User>.GetId(), Email = "maryam@gmail.com", Password = "12345" });
+            Users.Add(new User { Id = Identificator<User>.GetId(), Email = "admin@gmail.com", Password = "admin1" });
         }
     }
 }
