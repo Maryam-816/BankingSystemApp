@@ -87,7 +87,7 @@
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.btn_submit);
             this.Name = "RegLogControl";
-            this.Size = new System.Drawing.Size(180, 141);
+            this.Size = new System.Drawing.Size(179, 140);
             this.ResumeLayout(false);
             this.PerformLayout();
 
