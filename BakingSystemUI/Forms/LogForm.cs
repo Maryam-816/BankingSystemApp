@@ -13,7 +13,7 @@ namespace BakingSystemUI.Forms
         public LogForm()
         {
             InitializeComponent();
-
+            //+
             btn_registerSubmit.Click += btn_register_clicked;
             btn_loginSubmit.Click += btn_login_clicked;
             dbContext = new DbContext();
@@ -23,8 +23,8 @@ namespace BakingSystemUI.Forms
         {
             //get data
             string
-              email = txbx_loginEmail.Text,
-              password = txbx_loginPassword.Text;
+              email = txbx_loginEmail.Text,//
+              password = txbx_loginPassword.Text;//
             //validate data
             //check data - database
             User currentUser = dbContext.Users.FindItem(u => u.Email == email);
@@ -32,9 +32,21 @@ namespace BakingSystemUI.Forms
             {
                 Session.User = currentUser;
                 Session.LogForm = this;
-                MessageBox.Show("You successfully logged in!");
-                new MainForm().Show();
-                this.Hide();
+                if (currentUser.UserType == UserType.User)
+                {
+                    
+                    //MessageBox.Show("You successfully logged in!");
+                    new MainForm().Show();
+                    Hide();
+                }
+
+                else if(currentUser.UserType == UserType.Admin)
+                {
+                    new MainForm().Show();
+                    Hide();
+                }
+            }
+                
             }
             else
             {
@@ -47,14 +59,14 @@ namespace BakingSystemUI.Forms
         {
             //get data
             string
-                 email = txbx_registerEmail.Text,
-                 password = txbx_registerPassword.Text;
+                 email = txbx_registerEmail.Text,//
+                 password = txbx_registerPassword.Text;//
 
             //register
             
             if(dbContext.Users.FindItem(u => u.Email == email) == null)
             {
-                User user = new User { Email = email, Password = password, UserType = UserType.User };
+                User user = new User { Id = Identificator<User>.GetId(), Email = email, Password = password, UserType = UserType.User };
                 dbContext.Users.Add(user);
                 MessageBox.Show("You successfully registered!");
             }
