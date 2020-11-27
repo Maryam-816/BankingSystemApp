@@ -37,6 +37,8 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.grbx_setting = new System.Windows.Forms.GroupBox();
             this.lnLbl_settings = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.link_refresh = new System.Windows.Forms.LinkLabel();
             this.grbx_cards.SuspendLayout();
             this.grbx_user.SuspendLayout();
             this.grbx_setting.SuspendLayout();
@@ -117,7 +119,7 @@
             // grbx_setting
             // 
             this.grbx_setting.Controls.Add(this.lnLbl_settings);
-            this.grbx_setting.Location = new System.Drawing.Point(262, 124);
+            this.grbx_setting.Location = new System.Drawing.Point(262, 125);
             this.grbx_setting.Name = "grbx_setting";
             this.grbx_setting.Size = new System.Drawing.Size(200, 68);
             this.grbx_setting.TabIndex = 4;
@@ -135,17 +137,42 @@
             this.lnLbl_settings.Text = "Settings";
             this.lnLbl_settings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnLbl_settings_LinkClicked);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(441, 9);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(42, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "LogOut";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // link_refresh
+            // 
+            this.link_refresh.AutoSize = true;
+            this.link_refresh.Location = new System.Drawing.Point(441, 38);
+            this.link_refresh.Name = "link_refresh";
+            this.link_refresh.Size = new System.Drawing.Size(44, 13);
+            this.link_refresh.TabIndex = 6;
+            this.link_refresh.TabStop = true;
+            this.link_refresh.Text = "Refresh";
+            this.link_refresh.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_refresh_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 306);
+            this.Controls.Add(this.link_refresh);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.grbx_setting);
             this.Controls.Add(this.grbx_cards);
             this.Controls.Add(this.grbx_user);
             this.Name = "MainForm";
             this.Text = "UserForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.grbx_cards.ResumeLayout(false);
             this.grbx_cards.PerformLayout();
             this.grbx_user.ResumeLayout(false);
@@ -153,6 +180,7 @@
             this.grbx_setting.ResumeLayout(false);
             this.grbx_setting.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,5 +195,7 @@
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.GroupBox grbx_setting;
         private System.Windows.Forms.LinkLabel lnLbl_settings;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel link_refresh;
     }
 }

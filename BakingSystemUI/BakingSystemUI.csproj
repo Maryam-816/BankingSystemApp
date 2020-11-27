@@ -52,9 +52,11 @@
     <Compile Include="Controls\RegLogControl.Designer.cs">
       <DependentUpon>RegLogControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\Identificator.cs" />
     <Compile Include="Core\Session.cs" />
     <Compile Include="Data\DbContext.cs" />
     <Compile Include="Data\DbSet.cs" />
+    <Compile Include="Core\Entity.cs" />
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
