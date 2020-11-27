@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BakingSystemUI.Core;
+using BakingSystemUI.Data;
 using BakingSystemUI.Roles;
 
 namespace BakingSystemUI.Models
 {
-    public class Card
+    public class Card : Entity
     {
-        public int Id { get; set; }
         public BankName Bank { get; set; }
         public DurationType Duration { get; set; }
         public CardType CardType { get; set; }

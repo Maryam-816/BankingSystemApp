@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BakingSystemUI.Core;
+using BakingSystemUI.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BakingSystemUI.Models
 {
-    public class Person
+    public class Person : Entity
     {
         private byte _age;
 
