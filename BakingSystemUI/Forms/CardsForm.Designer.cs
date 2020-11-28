@@ -42,7 +42,9 @@
             this.lbl_cvc = new System.Windows.Forms.Label();
             this.txbx_bank = new System.Windows.Forms.TextBox();
             this.lbl_bank = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grbx_card.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // grbx_card
@@ -60,7 +62,7 @@
             this.grbx_card.Controls.Add(this.lbl_cvc);
             this.grbx_card.Controls.Add(this.txbx_bank);
             this.grbx_card.Controls.Add(this.lbl_bank);
-            this.grbx_card.Location = new System.Drawing.Point(309, 12);
+            this.grbx_card.Location = new System.Drawing.Point(399, 12);
             this.grbx_card.Name = "grbx_card";
             this.grbx_card.Size = new System.Drawing.Size(280, 288);
             this.grbx_card.TabIndex = 2;
@@ -178,16 +180,26 @@
             this.lbl_bank.TabIndex = 0;
             this.lbl_bank.Text = "Bank: ";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(390, 317);
+            this.dataGridView1.TabIndex = 3;
+            // 
             // CardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 323);
+            this.ClientSize = new System.Drawing.Size(691, 323);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.grbx_card);
             this.Name = "CardsForm";
             this.Text = "CardsForm";
             this.grbx_card.ResumeLayout(false);
             this.grbx_card.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Label lbl_cvc;
         private System.Windows.Forms.TextBox txbx_bank;
         private System.Windows.Forms.Label lbl_bank;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

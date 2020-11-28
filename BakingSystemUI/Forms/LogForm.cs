@@ -13,7 +13,7 @@ namespace BakingSystemUI.Forms
         public LogForm()
         {
             InitializeComponent();
-            //+
+            
             regLogControl1.btn_submit.Text = "Register";
             regLogControl2.btn_submit.Text = "Login";
             regLogControl1.btn_submit.Click += btn_register_clicked;
@@ -51,8 +51,6 @@ namespace BakingSystemUI.Forms
                 Session.LogForm = this;
                 if (currentUser.UserType == UserType.User)
                 {
-
-                    //MessageBox.Show("You successfully logged in!");
                     new MainForm().Show();
                     Hide();
                 }
@@ -69,7 +67,7 @@ namespace BakingSystemUI.Forms
             }
         }
 
-        //    //go to new form or XXX
+       //go to new form or XXX
     }
 
 }
