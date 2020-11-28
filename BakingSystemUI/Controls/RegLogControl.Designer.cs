@@ -95,10 +95,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_submit;
-        public System.Windows.Forms.Label lbl_email;
-        private System.Windows.Forms.TextBox txbx_email;
+        public System.Windows.Forms.Button btn_submit;
+        private System.Windows.Forms.Label lbl_email;
+        public System.Windows.Forms.TextBox txbx_email;
         public System.Windows.Forms.TextBox txbx_password;
-        public System.Windows.Forms.Label lbl_password;
+        private System.Windows.Forms.Label lbl_password;
     }
 }
