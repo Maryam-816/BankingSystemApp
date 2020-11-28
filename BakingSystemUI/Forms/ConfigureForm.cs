@@ -42,7 +42,7 @@ namespace BakingSystemUI.Forms
             user.Age = byte.Parse(txbx_age.Text);
             user.Password = credentialsControl.txbx_password.Text;
             user.Email = credentialsControl.txbx_email.Text;
-            DbContext db = new DbContext();
+            DbContext db = Session.Data;
             db.Users.Update(user);
 
         }

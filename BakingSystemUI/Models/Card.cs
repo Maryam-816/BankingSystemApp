@@ -18,7 +18,7 @@ namespace BakingSystemUI.Models
         public short CVC { get; set; }
         public DateTime ExpiredDate { get; set; }
 
-        public string OwnerName { get; set; }
-        public int OwnerId { get; set; }
+        public string CardHolder { get; set; }
+        public int CardHolderId { get; set; }
     }
 }

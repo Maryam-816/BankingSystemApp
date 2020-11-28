@@ -19,6 +19,7 @@ namespace BakingSystemUI.Forms
             regLogControl1.btn_submit.Click += btn_register_clicked;
             regLogControl2.btn_submit.Click += btn_login_clicked;
             dbContext = new DbContext();
+            Session.Data = dbContext;
         }
 
         private void btn_register_clicked(object sender, EventArgs e)

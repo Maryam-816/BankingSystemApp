@@ -39,9 +39,9 @@
             this.txbx_expiredDate = new System.Windows.Forms.TextBox();
             this.btn_order = new System.Windows.Forms.Button();
             this.grbx_card = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbx_duration = new System.Windows.Forms.ComboBox();
+            this.cmbx_cardType = new System.Windows.Forms.ComboBox();
+            this.cmbx_bankName = new System.Windows.Forms.ComboBox();
             this.grbx_card.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,12 +131,13 @@
             this.btn_order.TabIndex = 14;
             this.btn_order.Text = "Order";
             this.btn_order.UseVisualStyleBackColor = true;
+            this.btn_order.Click += new System.EventHandler(this.btn_order_Click);
             // 
             // grbx_card
             // 
-            this.grbx_card.Controls.Add(this.comboBox3);
-            this.grbx_card.Controls.Add(this.comboBox2);
-            this.grbx_card.Controls.Add(this.comboBox1);
+            this.grbx_card.Controls.Add(this.cmbx_duration);
+            this.grbx_card.Controls.Add(this.cmbx_cardType);
+            this.grbx_card.Controls.Add(this.cmbx_bankName);
             this.grbx_card.Controls.Add(this.btn_order);
             this.grbx_card.Controls.Add(this.txbx_expiredDate);
             this.grbx_card.Controls.Add(this.lbl_expiredDate);
@@ -154,45 +155,45 @@
             this.grbx_card.TabStop = false;
             this.grbx_card.Text = "Card";
             // 
-            // comboBox1
+            // cmbx_duration
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "KapitalBank",
-            "ExpressBank",
-            "BTBBank",
-            "YellowBank",
-            "BeynalxalqBank"});
-            this.comboBox1.Location = new System.Drawing.Point(89, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 21);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Salary",
-            "Debet",
-            "Scolarship",
-            "Credit"});
-            this.comboBox2.Location = new System.Drawing.Point(89, 93);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(153, 21);
-            this.comboBox2.TabIndex = 16;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cmbx_duration.FormattingEnabled = true;
+            this.cmbx_duration.Items.AddRange(new object[] {
             "1",
             "2",
             "5",
             "10"});
-            this.comboBox3.Location = new System.Drawing.Point(89, 58);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(153, 21);
-            this.comboBox3.TabIndex = 17;
+            this.cmbx_duration.Location = new System.Drawing.Point(89, 58);
+            this.cmbx_duration.Name = "cmbx_duration";
+            this.cmbx_duration.Size = new System.Drawing.Size(153, 21);
+            this.cmbx_duration.TabIndex = 17;
+            // 
+            // cmbx_cardType
+            // 
+            this.cmbx_cardType.FormattingEnabled = true;
+            this.cmbx_cardType.Items.AddRange(new object[] {
+            "Salary",
+            "Debet",
+            "Scolarship",
+            "Credit"});
+            this.cmbx_cardType.Location = new System.Drawing.Point(89, 93);
+            this.cmbx_cardType.Name = "cmbx_cardType";
+            this.cmbx_cardType.Size = new System.Drawing.Size(153, 21);
+            this.cmbx_cardType.TabIndex = 16;
+            // 
+            // cmbx_bankName
+            // 
+            this.cmbx_bankName.FormattingEnabled = true;
+            this.cmbx_bankName.Items.AddRange(new object[] {
+            "Kapital Bank",
+            "Express Bank",
+            "BTB Bank",
+            "Yellow Bank",
+            "Beynalxalq Bank"});
+            this.cmbx_bankName.Location = new System.Drawing.Point(89, 22);
+            this.cmbx_bankName.Name = "cmbx_bankName";
+            this.cmbx_bankName.Size = new System.Drawing.Size(153, 21);
+            this.cmbx_bankName.TabIndex = 15;
             // 
             // CardManagerForm
             // 
@@ -221,8 +222,8 @@
         private System.Windows.Forms.TextBox txbx_expiredDate;
         private System.Windows.Forms.Button btn_order;
         private System.Windows.Forms.GroupBox grbx_card;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbx_duration;
+        private System.Windows.Forms.ComboBox cmbx_cardType;
+        private System.Windows.Forms.ComboBox cmbx_bankName;
     }
 }
