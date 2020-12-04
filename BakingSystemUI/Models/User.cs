@@ -1,4 +1,5 @@
 ﻿using BakingSystemUI.Roles;
+using BakingSystemUI.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace BakingSystemUI.Models
         public string Password { get { return _password; }
             set
             {
-                if (value.Length <= 6)
+                if (value.Length >= 6)
                     _password = value;
                 else
                     throw new InvalidPasswordException("Password includes not enough characters!");
