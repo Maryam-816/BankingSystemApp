@@ -42,9 +42,9 @@
             this.lbl_cvc = new System.Windows.Forms.Label();
             this.txbx_bank = new System.Windows.Forms.TextBox();
             this.lbl_bank = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_cards = new System.Windows.Forms.DataGridView();
             this.grbx_card.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cards)).BeginInit();
             this.SuspendLayout();
             // 
             // grbx_card
@@ -62,9 +62,9 @@
             this.grbx_card.Controls.Add(this.lbl_cvc);
             this.grbx_card.Controls.Add(this.txbx_bank);
             this.grbx_card.Controls.Add(this.lbl_bank);
-            this.grbx_card.Location = new System.Drawing.Point(399, 12);
+            this.grbx_card.Location = new System.Drawing.Point(574, 12);
             this.grbx_card.Name = "grbx_card";
-            this.grbx_card.Size = new System.Drawing.Size(280, 288);
+            this.grbx_card.Size = new System.Drawing.Size(280, 229);
             this.grbx_card.TabIndex = 2;
             this.grbx_card.TabStop = false;
             this.grbx_card.Text = "Card";
@@ -180,26 +180,28 @@
             this.lbl_bank.TabIndex = 0;
             this.lbl_bank.Text = "Bank: ";
             // 
-            // dataGridView1
+            // dgv_cards
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(390, 317);
-            this.dataGridView1.TabIndex = 3;
+            this.dgv_cards.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_cards.Location = new System.Drawing.Point(1, 1);
+            this.dgv_cards.Name = "dgv_cards";
+            this.dgv_cards.Size = new System.Drawing.Size(567, 344);
+            this.dgv_cards.TabIndex = 3;
+            this.dgv_cards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cards_CellClick);
             // 
             // CardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 323);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(866, 346);
+            this.Controls.Add(this.dgv_cards);
             this.Controls.Add(this.grbx_card);
             this.Name = "CardsForm";
             this.Text = "CardsForm";
+            this.Load += new System.EventHandler(this.CardsForm_Load);
             this.grbx_card.ResumeLayout(false);
             this.grbx_card.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_cards)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -220,6 +222,6 @@
         private System.Windows.Forms.Label lbl_cvc;
         private System.Windows.Forms.TextBox txbx_bank;
         private System.Windows.Forms.Label lbl_bank;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_cards;
     }
 }

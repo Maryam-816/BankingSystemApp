@@ -43,7 +43,7 @@ namespace BakingSystemUI.Forms
             Session.LogForm.Show();
         }
 
-        private void MainForm_Load(object sender, System.EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             User currentUser = Session.User;
             lbl_name.Text = $"Name: {currentUser.Name}";

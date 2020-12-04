@@ -95,7 +95,6 @@
     </Compile>
     <Compile Include="Managers\CardManager.cs" />
     <Compile Include="Models\Card.cs" />
-    <Compile Include="Exceptions\InvalidPasswordException.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
@@ -104,6 +103,9 @@
     <Compile Include="Roles\CardType.cs" />
     <Compile Include="Roles\DurationType.cs" />
     <Compile Include="Roles\UserType.cs" />
+    <Compile Include="Exceptions\AgeValueValidException.cs" />
+    <Compile Include="Exceptions\InvalidEmailException.cs" />
+    <Compile Include="Exceptions\InvalidPasswordException.cs" />
     <Compile Include="Validation\Validator.cs" />
     <EmbeddedResource Include="Controls\RegLogControl.resx">
       <DependentUpon>RegLogControl.cs</DependentUpon>
