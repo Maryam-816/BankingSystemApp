@@ -34,6 +34,7 @@ namespace BakingSystemUI.Managers
             {
                 cardNumber.Append(_random.Next(1000, 9999));
             }
+            return cardNumber.ToString();
         }
 
         private short GetCVC()
