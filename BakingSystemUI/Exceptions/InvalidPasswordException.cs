@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace BakingSystemUI.Models
+namespace BakingSystemUI.Validation
 {
     [Serializable]
     internal class InvalidPasswordException : Exception
