@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BakingSystemUI.Data;
 
 namespace BakingSystemUI.Forms
 {
@@ -26,16 +27,21 @@ namespace BakingSystemUI.Forms
 
         private void lnLbl_cards_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            dataGridView1.DataSource = Session.Data.Cards.GetAll()
-                          .Select(card => new { card.Id, card.CardHolder, card.Bank, card.CardType, card.CardNumber, card.CVC, card.ExpiredDate })
-                          .ToList();
+            //dataGridView1.DataSource = Session.Data.Cards.GetAll()
+            //              .Select(card => new { card.Id, card.CardHolder, card.Bank, card.CardType, card.CardNumber, card.CVC, card.ExpiredDate })
+            //              .ToList();
         }
 
         private void lnLbl_users_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            dataGridView1.DataSource = Session.Data.Users.GetAll()
-                .Select(user => new { user.Id, FullName = $"{user.Name}, {user.Surname}, {user.Age}", user.Email })
-                .ToList();             
+            //dataGridView1.DataSource = Session.Data.Users.GetAll()
+            //    .Select(user => new { user.Id, FullName = $"{user.Name}, {user.Surname}, {user.Age}", user.Email })
+            //    .ToList();         
+            
+            using(DatabaseManager databaseManager = new DatabaseManager("myDB"))
+            {
+                dataGridView1.DataSource = databaseManager.GetUsers().ToList();
+            }
         }
 
         private void lnLbl_refresh_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
