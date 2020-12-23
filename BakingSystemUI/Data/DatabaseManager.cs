@@ -25,6 +25,55 @@ namespace BakingSystemUI.Data
             _sqlConn.Dispose();
         }
 
+        private int IUD_command(string query, Action<SqlCommand> action)
+        {
+            int affectedRows = default;
+            using (SqlCommand sqlCommand = new SqlCommand(query, _sqlConn))
+            {
+                action(sqlCommand);
+                affectedRows = sqlCommand.ExecuteNonQuery();
+            }
+            return 
+        }
+
+        public int AddCards(Card card)
+        {
+
+        }
+
+        public int AddUser(User user)
+        {
+            return IUD_command("INSERT INTO Users(Name, Surname, Age, Email, Password, UserType) VALUES(@n, @s, @a, @e, @ps, @ut)", sqlCommand
+            {
+                sqlCommand.Parameters.AddWithValue("@n", user.Name);
+                sqlCommand.Parameters.AddWithValue("@s", user.Surname);
+                sqlCommand.Parameters.AddWithValue("@a", user.Age);
+                sqlCommand.Parameters.AddWithValue("@e", user.Email);
+                sqlCommand.Parameters.AddWithValue("@ps", user.Password);
+                sqlCommand.Parameters.AddWithValue("@ut", user.UserType).ToString();
+            });
+        }
+
+        public int UpdatedUser(User user)
+        {
+            return IUD_command("UPDATE Users SET Name=@n, Surname=@s, Age=@a, Password=@ps WHERE Id=@id", sqlCommand
+            {
+                sqlCommand.Parameters.AddWithValue("@n", user.Name);
+                sqlCommand.Parameters.AddWithValue("@s", user.Surname);
+                sqlCommand.Parameters.AddWithValue("@a", user.Age);
+                sqlCommand.Parameters.AddWithValue("@ps", user.Password);
+                sqlCommand.Parameters.AddWithValue("@id", user.Id);
+            });
+        }
+
+        public int DeleteUser(User user)
+        {
+            return IUD_command("DELETE Users WHERE Id=@id", sqlCommand
+            {
+                sqlCommand.Parameters.AddWithValue("@id", user.Id);
+            });
+            
+        }
         public IEnumerable<User> GetUsers()
         {
             List<User> users = new List<User>();

@@ -20,10 +20,17 @@ namespace BakingSystemUI.Forms
             InitializeComponent();
         }
 
+        private void btn_updateUser(object sender, EventArgs e)
+        {
+            int aRows = UpdateUser(Session.User);
+            if (aRows < 0)
+            MessageBox.Show("User updeted!");
+            else
+                MessageBox.Show("Udeted failed!");
+        }
         private void ConfigureForm_Load(object sender, EventArgs e)
         {
             GetCurrentUser(Session.User);
-            MessageBox.Show("User updated!");
         }
 
         private void GetCurrentUser(User user)
@@ -37,17 +44,26 @@ namespace BakingSystemUI.Forms
 
         private void UpdateUser(User user)
         {
+            int affectedRows = 0;
             user.Name = txbx_name.Text;
             user.Surname = txbx_surname.Text;
             user.Age = byte.Parse(txbx_age.Text);
             user.Password = credentialsControl.txbx_password.Text;
             user.Email = credentialsControl.txbx_email.Text;
-            DbContext db = Session.Data;
-            db.Users.Update(user);
 
+            using (DatabaseManager db = new DatabaseManager("myDB"))
+            {
+                affectedRows = db.UpdateUser(user);
+            }
+            return affectedRows;
         }
 
         private void grbx_user_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void credentialsControl_Load(object sender, EventArgs e)
         {
 
         }

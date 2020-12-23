@@ -3,13 +3,14 @@ using BakingSystemUI.Data;
 using BakingSystemUI.Models;
 using BakingSystemUI.Roles;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BakingSystemUI.Forms
 {
     public partial class LogForm : Form
     {
-        private readonly DbContext dbContext;
         public LogForm()
         {
             InitializeComponent();
@@ -18,10 +19,8 @@ namespace BakingSystemUI.Forms
             regLogControl2.btn_submit.Text = "Login";
             regLogControl1.btn_submit.Click += btn_register_clicked;
             regLogControl2.btn_submit.Click += btn_login_clicked;
-            dbContext = new DbContext();
-            Session.Data = dbContext;
         }
-
+        
         private void btn_register_clicked(object sender, EventArgs e)
         {
             //get data
@@ -29,23 +28,37 @@ namespace BakingSystemUI.Forms
                  email = regLogControl1.txbx_email.Text,
                  password = regLogControl1.txbx_password.Text;
 
-            if (dbContext.Users.FindItem(u => u.Email == email) == null)
+            
+            using (DatabaseManager db = new DatabaseManager("myDB"))
             {
-                User user = new User { Id = Identificator<User>.GetId(), Email = email, Password = password, UserType = UserType.User };
-                dbContext.Users.Add(user);
+                users = (List<User>)db.GetUsers();
+            }
+
+            if (users.Any(u => u.Email == email))
+            {
+                User user = new User {Email = email, Password = password, UserType = UserType.User };
+                using (DatabaseManager db = new DatabaseManager("myDB"))
+                {
+                    db.AddUser(user);
+                }
                 MessageBox.Show("You successfully registered!");
+            }
+            else
+            {
+                MessageBox.Show("This user is already exists!");
             }
         }
 
         private void btn_login_clicked(object sender, EventArgs e)
         {
+            List<User> users = null;
             //get data
             string
               email = regLogControl2.txbx_email.Text,
               password = regLogControl2.txbx_password.Text;
             //    //validate data
             //    //check data - database
-            User currentUser = dbContext.Users.FindItem(u => u.Email == email);
+            User currentUser = users.FindItem(user => user.Email == email && user.Password == password);
             if (currentUser != null)
             {
                 Session.User = currentUser;

@@ -30,6 +30,7 @@ namespace BakingSystemUI.Forms
         private void InitializeComponent()
         {
             this.grbx_userInfo = new System.Windows.Forms.GroupBox();
+            this.credentialsControl = new BakingSystemUI.Controls.RegLogControl();
             this.txbx_age = new System.Windows.Forms.TextBox();
             this.lbl_age = new System.Windows.Forms.Label();
             this.txbx_surname = new System.Windows.Forms.TextBox();
@@ -37,7 +38,6 @@ namespace BakingSystemUI.Forms
             this.txbx_name = new System.Windows.Forms.TextBox();
             this.lbl_name = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.credentialsControl = new BakingSystemUI.Controls.RegLogControl();
             this.grbx_userInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,14 @@ namespace BakingSystemUI.Forms
             this.grbx_userInfo.TabIndex = 0;
             this.grbx_userInfo.TabStop = false;
             this.grbx_userInfo.Text = "UserInfo";
+            // 
+            // credentialsControl
+            // 
+            this.credentialsControl.Location = new System.Drawing.Point(6, 214);
+            this.credentialsControl.Name = "credentialsControl";
+            this.credentialsControl.Size = new System.Drawing.Size(180, 145);
+            this.credentialsControl.TabIndex = 12;
+            this.credentialsControl.Load += new System.EventHandler(this.credentialsControl_Load);
             // 
             // txbx_age
             // 
@@ -116,13 +124,6 @@ namespace BakingSystemUI.Forms
             this.label1.Size = new System.Drawing.Size(238, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Here you can configure your personal information";
-            // 
-            // credentialsControl
-            // 
-            this.credentialsControl.Location = new System.Drawing.Point(6, 214);
-            this.credentialsControl.Name = "credentialsControl";
-            this.credentialsControl.Size = new System.Drawing.Size(180, 145);
-            this.credentialsControl.TabIndex = 12;
             // 
             // ConfigureForm
             // 
