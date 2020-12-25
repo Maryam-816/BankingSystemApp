@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using BakingSystemUI.Models;
+using BakingSystemUI.Roles;
 
 namespace BakingSystemUI.Data
 {
@@ -35,10 +36,20 @@ namespace BakingSystemUI.Data
             }
             return 
         }
-
         public int AddCards(Card card)
         {
-
+            return IUD_command("INSERT INTO Cards(Number, CVC, Bank, Type, Duration, CardHolder, ExpireDate, Balance, UserId) VALUES(@n, @cvc, @b, @t, @d, @ch, @ed, @blc, 0uid@)", com =>
+            {
+                com.Parameters.AddWithValue("@n", card.CardNumber);
+                com.Parameters.AddWithValue("@cvc", card.CVC);
+                com.Parameters.AddWithValue("@b", card.Bank.ToString());
+                com.Parameters.AddWithValue("@t", card.CardType.ToString());
+                com.Parameters.AddWithValue("@d", card.Duration);
+                com.Parameters.AddWithValue("@ch", card.CardHolder);
+                com.Parameters.AddWithValue("@ed", card.ExpiredDate);
+                com.Parameters.AddWithValue("@blc", card.Balance);
+                com.Parameters.AddWithValue("@uid", card.CardHolderId);
+            });
         }
 
         public int AddUser(User user)
@@ -74,13 +85,61 @@ namespace BakingSystemUI.Data
             });
             
         }
-        public IEnumerable<User> GetUsers()
+
+        private IEnumerable<Card> _GetCards(string query, Action<SqlCommand> action)
+        {
+            List<Card> items = new List<Card>();
+            using (SqlCommand sqlCommand = new SqlCommand(query, _sqlConn))
+            {
+                action(sqlCommand)
+                sqlCommand.Connection = _sqlConn;
+                using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        items.Add(new Card
+                        {
+                            Id = Convert.ToInt32(dataReader["Id"]),
+                            Bank = (BankName).Enum.Parse(typeof(BankName), dataReader["Bank"].ToString()),
+                            CVC = Convert.ToInt16(dataReader["CVC"]),
+                            ExpiredDate = (DateTime)dataReader["ExpiredDate"],
+                            Duration = (DurationType)Enum.Parse(typeof(DurationType), dataReader["Duration"].ToString()),
+                            CardType = dataReader["Type"],
+                            CardNumber = dataReader["CardNumber"].ToString(),
+                            CardHolder = dataReader["CardHolder"].ToString(),
+                            CardHolderId = Convert.ToInt32(dataReader["UserId"]),
+                            Balance = Convert.ToDecimal(dataReader["Balance"])
+                        });
+                    }
+                }
+            }
+            return users;
+        }
+        public IEnumerable<Card> GetCards()
+        {
+            return _GetCards("Number, CVC, Bank, Type, Duration, CardHolder, ExpireDate, Balance, Duration, UserId FROM Cards", dataReader => { });
+        }
+        public IEnumerable<Card> GetCardById(int idColumn)
+        {
+            return _GetCards("Number, CVC, Bank, Type, Duration, CardHolder, ExpireDate, Balance, Duration, UserId FROM Cards WHERE Id=@id", (com) => 
+            {
+                com.Parameters.AddWithValue("@id", idColumn);
+            });
+        }
+        public IEnumerable<Card> GetCardByUserId(int id)
+        {
+            return _GetCards("Number, CVC, Bank, Type, Duration, CardHolder, ExpireDate, Balance, Duration, UserId FROM Cards WHERE UserId=@id", (com) =>
+            {
+                com.Parameters.AddWithValue("@id", id);
+            });
+        }
+        public IEnumerable<User> _GetUsers(string query, Action<SqlCommand> action)
         {
             List<User> users = new List<User>();
-            string command = "SELECT Id, Name, Surname, Age, Email, Password FROM Users";
-            using (SqlCommand sqlCommand = new SqlCommand(command))
+            string command = ;
+            using (SqlCommand sqlCommand = new SqlCommand(query, _sqlConn))
             {
-                sqlCommand.Connection = _sqlConn;
+                action(_sqlConn);
                 using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
                 {
                     while (sqlDataReader.Read())
@@ -93,11 +152,16 @@ namespace BakingSystemUI.Data
                             Age = Convert.ToByte(sqlDataReader["Age"]),
                             Email = sqlDataReader["Email"].ToString(),
                             Password = sqlDataReader["Password"].ToString(),
-                        });
+                            UserType = (UserType)Enum.Parse(typeof(UserType), sqlDataReader["UserType"].ToString())
+                        }) ;
                     }
                 }
             }
             return users;
+        }
+        public IEnumerable<User> GetUsers()
+        {
+            return _GetUsers("SELECT Id, Name, Surname, Age, Email, Password, UserType FROM Users", com => { });
         }
     }
 }

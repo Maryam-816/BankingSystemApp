@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.grbx_card = new System.Windows.Forms.GroupBox();
-            this.btn_order = new System.Windows.Forms.Button();
             this.txbx_expiredDate = new System.Windows.Forms.TextBox();
             this.lbl_expiredDate = new System.Windows.Forms.Label();
             this.txbx_duration = new System.Windows.Forms.TextBox();
@@ -43,13 +42,16 @@
             this.txbx_bank = new System.Windows.Forms.TextBox();
             this.lbl_bank = new System.Windows.Forms.Label();
             this.dgv_cards = new System.Windows.Forms.DataGridView();
+            this.txbx_balance = new System.Windows.Forms.TextBox();
+            this.lbl_balance = new System.Windows.Forms.Label();
             this.grbx_card.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cards)).BeginInit();
             this.SuspendLayout();
             // 
             // grbx_card
             // 
-            this.grbx_card.Controls.Add(this.btn_order);
+            this.grbx_card.Controls.Add(this.txbx_balance);
+            this.grbx_card.Controls.Add(this.lbl_balance);
             this.grbx_card.Controls.Add(this.txbx_expiredDate);
             this.grbx_card.Controls.Add(this.lbl_expiredDate);
             this.grbx_card.Controls.Add(this.txbx_duration);
@@ -64,19 +66,10 @@
             this.grbx_card.Controls.Add(this.lbl_bank);
             this.grbx_card.Location = new System.Drawing.Point(574, 12);
             this.grbx_card.Name = "grbx_card";
-            this.grbx_card.Size = new System.Drawing.Size(280, 229);
+            this.grbx_card.Size = new System.Drawing.Size(280, 272);
             this.grbx_card.TabIndex = 2;
             this.grbx_card.TabStop = false;
             this.grbx_card.Text = "Card";
-            // 
-            // btn_order
-            // 
-            this.btn_order.Location = new System.Drawing.Point(89, 234);
-            this.btn_order.Name = "btn_order";
-            this.btn_order.Size = new System.Drawing.Size(153, 48);
-            this.btn_order.TabIndex = 14;
-            this.btn_order.Text = "Order";
-            this.btn_order.UseVisualStyleBackColor = true;
             // 
             // txbx_expiredDate
             // 
@@ -189,6 +182,23 @@
             this.dgv_cards.TabIndex = 3;
             this.dgv_cards.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cards_CellClick);
             // 
+            // txbx_balance
+            // 
+            this.txbx_balance.Location = new System.Drawing.Point(89, 235);
+            this.txbx_balance.Multiline = true;
+            this.txbx_balance.Name = "txbx_balance";
+            this.txbx_balance.Size = new System.Drawing.Size(153, 20);
+            this.txbx_balance.TabIndex = 15;
+            // 
+            // lbl_balance
+            // 
+            this.lbl_balance.AutoSize = true;
+            this.lbl_balance.Location = new System.Drawing.Point(9, 242);
+            this.lbl_balance.Name = "lbl_balance";
+            this.lbl_balance.Size = new System.Drawing.Size(46, 13);
+            this.lbl_balance.TabIndex = 14;
+            this.lbl_balance.Text = "Balance";
+            // 
             // CardsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +219,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grbx_card;
-        private System.Windows.Forms.Button btn_order;
         private System.Windows.Forms.TextBox txbx_expiredDate;
         private System.Windows.Forms.Label lbl_expiredDate;
         private System.Windows.Forms.TextBox txbx_duration;
@@ -223,5 +232,7 @@
         private System.Windows.Forms.TextBox txbx_bank;
         private System.Windows.Forms.Label lbl_bank;
         private System.Windows.Forms.DataGridView dgv_cards;
+        private System.Windows.Forms.TextBox txbx_balance;
+        private System.Windows.Forms.Label lbl_balance;
     }
 }

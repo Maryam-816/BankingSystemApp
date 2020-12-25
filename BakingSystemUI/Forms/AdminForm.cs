@@ -30,6 +30,12 @@ namespace BakingSystemUI.Forms
             //dataGridView1.DataSource = Session.Data.Cards.GetAll()
             //              .Select(card => new { card.Id, card.CardHolder, card.Bank, card.CardType, card.CardNumber, card.CVC, card.ExpiredDate })
             //              .ToList();
+            using (DatabaseManager databaseManager = new DatabaseManager("myDB"))
+            {
+                dataGridView1.DataSource = databaseManager.GetCards().ToList()
+                    .Select(card => new { card.Id, card.CardHolder, card.Bank, card.CardType, card.CardNumber, card.CVC, card.ExpiredDate })
+                    .ToList();
+            }
         }
 
         private void lnLbl_users_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -40,7 +46,7 @@ namespace BakingSystemUI.Forms
             
             using(DatabaseManager databaseManager = new DatabaseManager("myDB"))
             {
-                dataGridView1.DataSource = databaseManager.GetUsers().ToList();
+                dataGridView1.DataSource = databaseManager.GetUsers().Where(u => u.UserType == UserType.User).ToList();
             }
         }
 
