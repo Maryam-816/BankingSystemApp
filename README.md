@@ -1,3 +1,3 @@
 # BankingSystemApp
 
-This program gives cards for it`s users
+This program gives cards for it`s users and save them in DB(DataBase)
